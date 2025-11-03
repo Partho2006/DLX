@@ -3,7 +3,6 @@
 import { SignIn, useUser, UserButton, SignInButton } from '@clerk/nextjs'
 import React from 'react'
 import Link from 'next/link'
-import { navLinks } from '@/constants/Links'
 import { Heart, Search, ShoppingBag, User  } from "lucide-react";
 
 
@@ -24,10 +23,31 @@ const Header = () => {
 
       {/* 2nd: Nav Links */}
       <div className="flex gap-16 items-center">
-        {navLinks.map((link) => (
-          <Link href={link.path} key={link.id}>
+        <div className="">
+          <span className="relative text-sm text-black cursor-pointer group">
+              <div className="pb-4">ALL</div>
+              <span
+                className="
+            absolute left-0 -bottom-1 h-0.5 w-0 bg-black 
+            transition-all duration-300 group-hover:w-full
+          "
+              ></span>
+            </span>
+        </div>
+        <div className="">
+          <span className="relative text-sm text-black cursor-pointer group">
+              <div className="pb-4">COLLECTIONS</div>
+              <span
+                className="
+            absolute left-0 -bottom-1 h-0.5 w-0 bg-black 
+            transition-all duration-300 group-hover:w-full
+          "
+              ></span>
+            </span>
+        </div>
+        <Link href="winter-wear" >
             <span className="relative text-sm text-black cursor-pointer group">
-              <div className="pb-4">{link.name}</div>
+              <div className="pb-4">WINTERWEAR</div>
               <span
                 className="
             absolute left-0 -bottom-1 h-0.5 w-0 bg-black 
@@ -36,7 +56,17 @@ const Header = () => {
               ></span>
             </span>
           </Link>
-        ))}
+          <Link href="new-arrivals" >
+            <span className="relative text-sm text-black cursor-pointer group">
+              <div className="pb-4">NEW ARRIVALS</div>
+              <span
+                className="
+            absolute left-0 -bottom-1 h-0.5 w-0 bg-black 
+            transition-all duration-300 group-hover:w-full
+          "
+              ></span>
+            </span>
+          </Link>
       </div>
 
       {/* 3rd: Icons */}
